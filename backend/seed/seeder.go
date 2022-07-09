@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/jinzhu/gorm"
-	"github.com/wawansoer/V-Go-JWT/backend//models"
+	"github.com/wawansoer/V-Go-JWT/backend/models"
 )
 
 var users = []models.User{
@@ -21,8 +21,11 @@ var users = []models.User{
 }
 
 func Load(db *gorm.DB) {
-
-	err = db.Debug().AutoMigrate(&models.User{}, &models.Post{}).Error
+	err := db.Debug().DropTableIfExists(&models.User{}).Error
+	if err != nil {
+		log.Fatalf("cannot drop table: %v", err)
+	}
+	err = db.Debug().AutoMigrate(&models.User{}).Error
 	if err != nil {
 		log.Fatalf("cannot migrate table: %v", err)
 	}
@@ -32,11 +35,6 @@ func Load(db *gorm.DB) {
 		if err != nil {
 			log.Fatalf("cannot seed users table: %v", err)
 		}
-		posts[i].AuthorID = users[i].ID
-
-		err = db.Debug().Model(&models.Post{}).Create(&posts[i]).Error
-		if err != nil {
-			log.Fatalf("cannot seed posts table: %v", err)
-		}
 	}
+
 }

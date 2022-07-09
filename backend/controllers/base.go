@@ -7,6 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
+	"github.com/wawansoer/V-Go-JWT/backend/models"
 
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -41,7 +42,7 @@ func (server *Server) Initialize(Dbdriver, DbUser, DbPassword, DbPort, DbHost, D
 		}
 	}
 
-	server.DB.Debug().AutoMigrate(&models.User{}, &models.Post{}) //database migration
+	server.DB.Debug().AutoMigrate(&models.User{}) //database migration
 
 	server.Router = mux.NewRouter()
 

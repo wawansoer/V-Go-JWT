@@ -9,10 +9,10 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/victorsteven/fullstack/api/auth"
-	"github.com/victorsteven/fullstack/api/models"
-	"github.com/victorsteven/fullstack/api/responses"
-	"github.com/victorsteven/fullstack/api/utils/formaterror"
+	"github.com/wawansoer/V-Go-JWT/backend//auth"
+	"github.com/wawansoer/V-Go-JWT/backend/models"
+	"github.com/wawansoer/V-Go-JWT/backend/responses"
+	"github.com/wawansoer/V-Go-JWT/backend/utils/formaterror"
 )
 
 func (server *Server) CreateUser(w http.ResponseWriter, r *http.Request) {
