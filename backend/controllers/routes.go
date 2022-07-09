@@ -1,6 +1,6 @@
 package controllers
 
-import "github.com/wawansoer/V-Go-JWT/middlewares"
+import "github.com/wawansoer/V-Go-JWT/backend/middlewares"
 
 func (s *Server) initializeRoutes() {
 

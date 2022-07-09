@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"../auth"
-	"../responses"
+	"github.com/wawansoer/V-Go-JWT/backend/auth"
+	"github.com/wawansoer/V-Go-JWT/backend/responses"
 )
 
 func SetMiddlewareJSON(next http.HandlerFunc) http.HandlerFunc {

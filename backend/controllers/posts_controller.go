@@ -8,11 +8,11 @@ import (
 	"net/http"
 	"strconv"
 
-	"../auth"
-	"../models"
-	"../responses"
-	"../utils/formaterror"
 	"github.com/gorilla/mux"
+	"github.com/wawansoer/V-Go-JWT/backend/auth"
+	"github.com/wawansoer/V-Go-JWT/backend/models"
+	"github.com/wawansoer/V-Go-JWT/backend/responses"
+	"github.com/wawansoer/V-Go-JWT/backend/utils/formaterror"
 )
 
 func (server *Server) CreatePost(w http.ResponseWriter, r *http.Request) {
